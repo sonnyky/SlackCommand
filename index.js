@@ -21,9 +21,7 @@ app.post('/post', function(req, res){
   //take a message from Slack slash command
 
   
-var body = {
-    response : 'ph-iodata, PW : 6949246599971'
-}
+var body = 'ph-iodata1 のアクセスポイント使ってね～　パスワードは : 6949246599971 モグ！'
 
 res.send(body);
    
