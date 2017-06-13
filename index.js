@@ -23,13 +23,11 @@ app.get('/', function(req, res){
 app.post('/post', function(req, res){
   //take a message from Slack slash command
   var body = '本サービスをご利用できませんｍ ｍ';
-  var queryData = url.parse(req.url, true).query;
-  var token = queryData.token;
-  var requesterTeamId = queryData.team_id;
+  var token = req.body.token;
   if(token === slackToken){
     body = 'ph-iodata1 のアクセスポイント使ってね～　パスワードは : 6949246599971 モグ！'
   }else{
-    body = 'Token is : ' + token + ' and team id is ' + requesterTeamId;
+    body = 'Token is : ' + token;
   }
   res.send(body);
    
