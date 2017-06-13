@@ -25,8 +25,10 @@ app.post('/post', function(req, res){
   var body = '本サービスをご利用できませんｍ ｍ' 
   var token = req.query.token;
   var requesterTeamId = req.query.team_id;
-  if(token === slackToken && teamId === requesterTeamId){
+  if(token === slackToken){
     body = 'ph-iodata1 のアクセスポイント使ってね～　パスワードは : 6949246599971 モグ！'
+  }else{
+    body = 'Token is : ' + token + ' and team id is ' + teamId;
   }
   res.send(body);
    
