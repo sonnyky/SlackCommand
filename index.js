@@ -22,13 +22,14 @@ app.get('/', function(req, res){
 //app.post is triggered when a POST request is sent to the URL ‘/post’
 app.post('/post', function(req, res){
   //take a message from Slack slash command
-  var body = '本サービスをご利用できませんｍ ｍ' 
-  var token = req.query.token;
-  var requesterTeamId = req.query.team_id;
+  var body = '本サービスをご利用できませんｍ ｍ';
+  var queryData = url.parse(req.url, true).query;
+  var token = queryData.token;
+  var requesterTeamId = queryData.team_id;
   if(token === slackToken){
     body = 'ph-iodata1 のアクセスポイント使ってね～　パスワードは : 6949246599971 モグ！'
   }else{
-    body = 'Token is : ' + token + ' and team id is ' + teamId;
+    body = 'Token is : ' + token + ' and team id is ' + requesterTeamId;
   }
   res.send(body);
    
